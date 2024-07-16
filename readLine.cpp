@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "parseSentence.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ int main() {
         //print the sentense if available
         else {
             cout << input << endl;
+            parser(input);
             
         }
         
