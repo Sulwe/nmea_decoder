@@ -72,6 +72,20 @@
 
         ////////////////////////////////////////////////////////////////////
 
+        //convert time format
+        string convertTime(string input) 
+        { 
+        
+
+            string hour = input.insert(2, ":");
+            string fullTime = hour.insert(5, ":");
+
+
+
+            return fullTime;
+        }
+        //////////////////////////////////////////////////
+
     //function to parse sentences and extract useful information
     int parser(string input)
     {
@@ -119,7 +133,7 @@
 
             switch (caseMap) {
                 case 1:
-                    nmeaData.time = arrayOfSubStrings[1];
+                    nmeaData.time = convertTime(arrayOfSubStrings[1]);
                     nmeaData.lattitude = convertDegrees(arrayOfSubStrings[2]);
                     nmeaData.latdir = arrayOfSubStrings[3];
                     nmeaData.longitude = convertDegrees(arrayOfSubStrings[4]);
@@ -129,7 +143,7 @@
                     break;
 
                 case 2:
-                    nmeaData.time = arrayOfSubStrings[5];
+                    nmeaData.time = convertTime(arrayOfSubStrings[5]);
                     nmeaData.lattitude = convertDegrees(arrayOfSubStrings[1]);
                     nmeaData.latdir = arrayOfSubStrings[2];
                     nmeaData.longitude = convertDegrees(arrayOfSubStrings[3]);
@@ -139,7 +153,7 @@
                     break;
 
                 case 3:
-                    nmeaData.time = arrayOfSubStrings[1];
+                    nmeaData.time = convertTime(arrayOfSubStrings[1]);
                     nmeaData.lattitude = convertDegrees(arrayOfSubStrings[3]);
                     nmeaData.latdir = arrayOfSubStrings[4];
                     nmeaData.longitude = convertDegrees(arrayOfSubStrings[5]);
