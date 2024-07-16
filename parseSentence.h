@@ -57,6 +57,20 @@
         }
 
         /////////////////////////////////////////////////////////
+        //convert date format
+        string convertDate(string input) 
+        { 
+        
+
+            string day = input.insert(2, "/");
+            string fullDate = day.insert(5, "/");
+
+
+
+            return fullDate;
+        }
+
+        ////////////////////////////////////////////////////////////////////
 
     //function to parse sentences and extract useful information
     int parser(string input)
@@ -132,7 +146,7 @@
                     nmeaData.londir = arrayOfSubStrings[6];
                     nmeaData.speed = arrayOfSubStrings[7];
                     nmeaData.course = arrayOfSubStrings[8];
-                    nmeaData.date = arrayOfSubStrings[9];
+                    nmeaData.date = convertDate(arrayOfSubStrings[9]);
 
                     cout << "Date: "<<nmeaData.date<< ", Time: " << nmeaData.time << ", Lattitude: " <<nmeaData.lattitude <<nmeaData.latdir << " Longitude: "<<nmeaData.longitude <<nmeaData.londir<< ", Speed: "<<nmeaData.speed<<" knots, Course: "<<nmeaData.course<<" degrees."<<endl;
                     break;
