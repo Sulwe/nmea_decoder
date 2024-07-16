@@ -28,9 +28,11 @@ int main() {
         //print the sentense if available
         else {
             cout << input << endl;
+            
         }
-        //close file
-        file.close();
+        
     }
+    //close file
+    file.close();
     return 0;
 }
