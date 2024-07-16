@@ -22,6 +22,42 @@
             arr[index++] = token;
         }        
     }
+
+        //////////////function to convert direction
+        string convertDegrees(string input) 
+        { 
+
+
+            // Delimiter 
+            char delimiter = '.'; 
+
+            // Array to store the substrings 
+            string arrayOfDegrees[100]; 
+
+            // Index to keep track of the number of substrings 
+            int index = 0; 
+
+            // Calling the function to split the input string into 
+            // an array of substrings 
+            splitString(input, delimiter, arrayOfDegrees, index); 
+
+
+            string s = arrayOfDegrees[0];
+            string t = arrayOfDegrees[1];
+            string p;
+
+            if (s.length() == 4){
+                p = s.insert(2, "°");
+            }
+            else if (s.length() == 5){
+                p = s.insert(3, "°");
+            }
+
+            return p +"."+ t + "'";
+        }
+
+        /////////////////////////////////////////////////////////
+
     //function to parse sentences and extract useful information
     int parser(string input)
     {
@@ -70,9 +106,9 @@
             switch (caseMap) {
                 case 1:
                     nmeaData.time = arrayOfSubStrings[1];
-                    nmeaData.lattitude = arrayOfSubStrings[2];
+                    nmeaData.lattitude = convertDegrees(arrayOfSubStrings[2]);
                     nmeaData.latdir = arrayOfSubStrings[3];
-                    nmeaData.longitude = arrayOfSubStrings[4];
+                    nmeaData.longitude = convertDegrees(arrayOfSubStrings[4]);
                     nmeaData.londir = arrayOfSubStrings[5];
 
                     cout << "Time: " << nmeaData.time << ", Lattitude: " <<nmeaData.lattitude <<nmeaData.latdir << ", Longitude: "<<nmeaData.longitude <<nmeaData.londir<< endl;
@@ -80,9 +116,9 @@
 
                 case 2:
                     nmeaData.time = arrayOfSubStrings[5];
-                    nmeaData.lattitude = arrayOfSubStrings[1];
+                    nmeaData.lattitude = convertDegrees(arrayOfSubStrings[1]);
                     nmeaData.latdir = arrayOfSubStrings[2];
-                    nmeaData.longitude = arrayOfSubStrings[3];
+                    nmeaData.longitude = convertDegrees(arrayOfSubStrings[3]);
                     nmeaData.londir = arrayOfSubStrings[4];
 
                     cout << "Time: " << nmeaData.time << ", Lattitude: " <<nmeaData.lattitude <<nmeaData.latdir << ", Longitude: "<<nmeaData.longitude <<nmeaData.londir<< endl;
@@ -90,9 +126,9 @@
 
                 case 3:
                     nmeaData.time = arrayOfSubStrings[1];
-                    nmeaData.lattitude = arrayOfSubStrings[3];
+                    nmeaData.lattitude = convertDegrees(arrayOfSubStrings[3]);
                     nmeaData.latdir = arrayOfSubStrings[4];
-                    nmeaData.longitude = arrayOfSubStrings[5];
+                    nmeaData.longitude = convertDegrees(arrayOfSubStrings[5]);
                     nmeaData.londir = arrayOfSubStrings[6];
                     nmeaData.speed = arrayOfSubStrings[7];
                     nmeaData.course = arrayOfSubStrings[8];
