@@ -162,7 +162,7 @@
                     nmeaData.course = arrayOfSubStrings[8];
                     nmeaData.date = convertDate(arrayOfSubStrings[9]);
 
-                    cout << "Date: "<<nmeaData.date<< ", Time: " << nmeaData.time << ", Lattitude: " <<nmeaData.lattitude <<nmeaData.latdir << " Longitude: "<<nmeaData.longitude <<nmeaData.londir<< ", Speed: "<<nmeaData.speed<<" knots, Course: "<<nmeaData.course<<" degrees."<<endl;
+                    cout << "Date: "<<nmeaData.date<< ", Time: " << nmeaData.time << ", Lattitude: " <<nmeaData.lattitude <<nmeaData.latdir << " Longitude: "<<nmeaData.longitude <<nmeaData.londir<< ", Speed: "<<nmeaData.speed<<" knots, Course: "<<nmeaData.course<<"°."<<endl;
                     break;
 
                 default:
